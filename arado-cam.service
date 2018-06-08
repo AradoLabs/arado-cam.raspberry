@@ -1,0 +1,14 @@
+# /etc/systemd/system/arado-cam-capture.service
+
+[Unit]
+Description=arado-cam raspberry video capture
+Requires=network-online.target
+After=netctl-auto@eth0.service
+
+[Service]
+Type=simple
+ExecStart=/home/arado-cam/start-arado-cam.sh
+User=arado-cam
+
+[Install]
+WantedBy=multi-user.target
